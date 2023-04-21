@@ -110,6 +110,7 @@ class _QuestionPageState extends State<QuestionPage> {
     );
   }
 
+  // to go the wheel page
   void _push() {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => FoodDecisionPage(),
@@ -167,8 +168,9 @@ class _FoodDecisionPageState extends State<FoodDecisionPage> {
                 ],
               ),
             ),
+            
+            // to create 'spin the wheel' button
             Padding(
-              //
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 onPressed: () {
@@ -196,8 +198,9 @@ class _FoodDecisionPageState extends State<FoodDecisionPage> {
                 ),
               ),
             ),
+            
+            // to create 'go back' button
             Padding(
-              //
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 child: Text(
