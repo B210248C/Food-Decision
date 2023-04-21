@@ -156,6 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: InkWell(
                 splashColor: Colors.black,
                 onTap: () {
+                  questionbrain.restart();
                   debugPrint('Card tapped.');
                   //when card 1 pressed, navigate to the question screen
                   Navigator.push(context,
