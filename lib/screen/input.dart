@@ -61,7 +61,11 @@ class _FoodChoosePageState extends State<FoodChoosePage> {
       backgroundColor: kScaffoldColor,
       appBar: AppBar(
         backgroundColor: kAppBarColor,
-        title: Center(child: Text('Food Decision')),
+        title: Center(
+            child: Text(
+          'Food Decision',
+          style: kTitleStyle,
+        )),
       ),
       body: GestureDetector(
         onTap: () {
