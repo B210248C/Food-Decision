@@ -19,11 +19,15 @@ class _QuestionPageState extends State<QuestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0x8AFCE4F3),
+      backgroundColor: kScaffoldColor,
       body: _buildBody(),
       appBar: AppBar(
-        backgroundColor: Color(0xFFEDA4B4),
-        title: Text('Food Decision App'),
+        backgroundColor: kAppBarColor,
+        title: Center(
+            child: Text(
+          'Food Decision',
+          style: kTitleStyle,
+        )),
       ),
     );
   }
@@ -73,31 +77,34 @@ class _QuestionPageState extends State<QuestionPage> {
           SizedBox(
             height: 20.0,
           ),
-          Expanded(
-            flex: 2,
-            child: TextButton(
-              onPressed: () {
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
+              flex: 2,
+              child: TextButton(
+                onPressed: () {
 //Choice 2 made by user
 //Call the nextQuestion() method from questionBrain and pass the number 2 as the choice made by the user.
 
-                setState(() {
-                  questionbrain.nextQuestion(2);
+                  setState(() {
+                    questionbrain.nextQuestion(2);
 
-                  if (questionbrain.getFoodNum() >= 0) _push();
-                });
-              },
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith(
-                    (states) => Colors.pink[400]),
-                foregroundColor:
-                    MaterialStateProperty.resolveWith((states) => Colors.white),
-                shape: MaterialStateProperty.resolveWith(
-                    (states) => BeveledRectangleBorder()),
-              ),
-              child: Text(
+                    if (questionbrain.getFoodNum() >= 0) _push();
+                  });
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith(
+                      (states) => Colors.pink[400]),
+                  foregroundColor: MaterialStateProperty.resolveWith(
+                      (states) => Colors.white),
+                  shape: MaterialStateProperty.resolveWith(
+                      (states) => BeveledRectangleBorder()),
+                ),
+                child: Text(
 //Use the questionBrain to get the text for choice 2.
-                questionbrain.getChoice2(),
-                style: kTextStyle2,
+                  questionbrain.getChoice2(),
+                  style: kTextStyle2,
+                ),
               ),
             ),
           ),
@@ -142,23 +149,26 @@ class _FoodDecisionPageState extends State<FoodDecisionPage> {
         },
         child: Column(
           children: [
-            Expanded(
-              child: FortuneWheel(
-                selected: selected.stream,
-                items: [
-                  for (var food
-                      in questionbrain.foodnumber(questionbrain.getFoodNum()))
-                    FortuneItem(
-                        child: Text(
-                          food,
-                          style: kTextStyle3,
-                        ),
-                        style: FortuneItemStyle(
-                          color: kBeigeColor,
-                          borderColor: kPurpleColor,
-                          borderWidth: 10,
-                        )),
-                ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Expanded(
+                child: FortuneWheel(
+                  selected: selected.stream,
+                  items: [
+                    for (var food
+                        in questionbrain.foodnumber(questionbrain.getFoodNum()))
+                      FortuneItem(
+                          child: Text(
+                            food,
+                            style: kTextStyle3,
+                          ),
+                          style: FortuneItemStyle(
+                            color: kBeigeColor,
+                            borderColor: kPurpleColor,
+                            borderWidth: 10,
+                          )),
+                  ],
+                ),
               ),
             ),
             Padding(
