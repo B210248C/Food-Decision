@@ -115,7 +115,7 @@ class _FoodChoosePageState extends State<FoodChoosePage> {
                   style: kTextStyle2,
                 ),
               ),
-            ),
+            
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: TextField(
