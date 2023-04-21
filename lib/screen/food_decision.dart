@@ -130,9 +130,11 @@ class _FoodDecisionPageState extends State<FoodDecisionPage> {
       backgroundColor: kScaffoldColor,
       appBar: AppBar(
         backgroundColor: kAppBarColor,
-        title: Text(
-          'Food Decision App',
-          style: kHomeTextStyle,
+        title: Center(
+          child: Text(
+            'Food Decision',
+            style: kTitleStyle,
+          ),
         ),
       ),
       body: GestureDetector(
