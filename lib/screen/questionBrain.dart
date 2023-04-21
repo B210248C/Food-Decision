@@ -240,7 +240,7 @@ class questionBrain {
     return _questionData[_questionNumber].questionTitle;
   }
 
-  // to gwt food num
+  // to get food num
   int getFoodNum() {
     return _foodnum;
   }
