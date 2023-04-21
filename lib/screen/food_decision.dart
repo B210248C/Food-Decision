@@ -77,34 +77,31 @@ class _QuestionPageState extends State<QuestionPage> {
           SizedBox(
             height: 20.0,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-              flex: 2,
-              child: TextButton(
-                onPressed: () {
+          Expanded(
+            flex: 2,
+            child: TextButton(
+              onPressed: () {
 //Choice 2 made by user
 //Call the nextQuestion() method from questionBrain and pass the number 2 as the choice made by the user.
 
-                  setState(() {
-                    questionbrain.nextQuestion(2);
+                setState(() {
+                  questionbrain.nextQuestion(2);
 
-                    if (questionbrain.getFoodNum() >= 0) _push();
-                  });
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.resolveWith(
-                      (states) => Colors.pink[400]),
-                  foregroundColor: MaterialStateProperty.resolveWith(
-                      (states) => Colors.white),
-                  shape: MaterialStateProperty.resolveWith(
-                      (states) => BeveledRectangleBorder()),
-                ),
-                child: Text(
+                  if (questionbrain.getFoodNum() >= 0) _push();
+                });
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith(
+                    (states) => Colors.pink[400]),
+                foregroundColor:
+                    MaterialStateProperty.resolveWith((states) => Colors.white),
+                shape: MaterialStateProperty.resolveWith(
+                    (states) => BeveledRectangleBorder()),
+              ),
+              child: Text(
 //Use the questionBrain to get the text for choice 2.
-                  questionbrain.getChoice2(),
-                  style: kTextStyle2,
-                ),
+                questionbrain.getChoice2(),
+                style: kTextStyle2,
               ),
             ),
           ),
@@ -149,26 +146,23 @@ class _FoodDecisionPageState extends State<FoodDecisionPage> {
         },
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Expanded(
-                child: FortuneWheel(
-                  selected: selected.stream,
-                  items: [
-                    for (var food
-                        in questionbrain.foodnumber(questionbrain.getFoodNum()))
-                      FortuneItem(
-                          child: Text(
-                            food,
-                            style: kTextStyle3,
-                          ),
-                          style: FortuneItemStyle(
-                            color: kBeigeColor,
-                            borderColor: kPurpleColor,
-                            borderWidth: 10,
-                          )),
-                  ],
-                ),
+            Expanded(
+              child: FortuneWheel(
+                selected: selected.stream,
+                items: [
+                  for (var food
+                      in questionbrain.foodnumber(questionbrain.getFoodNum()))
+                    FortuneItem(
+                        child: Text(
+                          food,
+                          style: kTextStyle3,
+                        ),
+                        style: FortuneItemStyle(
+                          color: kBeigeColor,
+                          borderColor: kPurpleColor,
+                          borderWidth: 10,
+                        )),
+                ],
               ),
             ),
             Padding(
