@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'firstLogin.dart';
-import 'login.dart';
-import 'register.dart';
-import 'firebase_options.dart';
+import 'package:login_interface/screen/firstLogin.dart';
+import 'package:login_interface/screen/login.dart';
+import 'package:login_interface/screen/register.dart';
+import 'package:login_interface/component/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'food_decision.dart';
-import 'home.dart';
-import 'input.dart';
+import 'package:login_interface/screen/food_decision.dart';
+import 'package:login_interface/screen/home.dart';
+import 'package:login_interface/screen/input.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
