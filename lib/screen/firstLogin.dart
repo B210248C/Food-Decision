@@ -200,7 +200,7 @@ class _FirstLoginState extends State<FirstLogin> {
                       //ElevatedButton widget based on the boolean value of _isButtonPressed variable. If _isButtonPressed is true, the background color will be set to Colors.green, otherwise, it will be set to Colors.blue
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            _isButtonPressed ? Colors.green : Colors.blue,
+                            _isButtonPressed ? Colors.green : kAppBarColor,
                       ),
                     ),
                   ),
