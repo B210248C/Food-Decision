@@ -13,6 +13,7 @@ class FoodChoosePage extends StatefulWidget {
 
 class _FoodChoosePageState extends State<FoodChoosePage> {
   final _auth = FirebaseAuth.instance;
+  //create Controller
   StreamController<int> selected = StreamController<int>();
   TextEditingController _foodController = TextEditingController();
   List<String> foods = [
@@ -49,8 +50,7 @@ class _FoodChoosePageState extends State<FoodChoosePage> {
 // to check whether we have actually get the input
         print(foods);
       });
-      
-      // to clear the data input
+
       _foodController.clear();
     }
   }
@@ -73,6 +73,13 @@ class _FoodChoosePageState extends State<FoodChoosePage> {
         },
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'What do you want to eat today?',
+                style: kTextStyle2,
+              ),
+            ),
             Expanded(
               child: FortuneWheel(
                 selected: selected.stream,
@@ -112,20 +119,18 @@ class _FoodChoosePageState extends State<FoodChoosePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
-               child: Text(
-                  'What do you want to eat today?',
-                  style: kTextStyle2,
-                ),
-              ),
-            
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.all(10),
               child: TextField(
+                style: kTextStyle3,
                 controller: _foodController,
                 decoration: InputDecoration(
-                  labelText: 'Add your own food',
-                  labelStyle: kTextStyle3,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(
+                        color: kPurpleColor), // Change to purple color
+                  ),
+                  hintText: 'Add your own food...',
+                  hintStyle: kTextStyle3,
                   suffixIcon: IconButton(
                     onPressed: _addFood,
                     icon: Icon(Icons.add),
