@@ -110,18 +110,7 @@ class _FoodChoosePageState extends State<FoodChoosePage> {
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: kAppBarColor,
-                ),
-                onPressed: () {
-                  setState(() {
-                    selected.add(
-                      Fortune.randomInt(0, foods.length),
-                    );
-                  });
-                },
-                child: Text(
+               child: Text(
                   'What do you want to eat today?',
                   style: kTextStyle2,
                 ),
