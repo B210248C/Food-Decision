@@ -34,7 +34,7 @@ class _FoodChoosePageState extends State<FoodChoosePage> {
     if (newFood.isNotEmpty) {
       setState(() {
         foods.add(newFood);
-        print("PIPI");
+        print("Add");
         if (foods.length < 4 && foods.contains('')) {
           foods.removeWhere((str) {
             return str == '';
@@ -49,6 +49,9 @@ class _FoodChoosePageState extends State<FoodChoosePage> {
 // to check whether we have actually get the input
         print(foods);
       });
+      
+      // to clear the data input
+      _foodController.clear();
     }
   }
 
@@ -122,6 +125,7 @@ class _FoodChoosePageState extends State<FoodChoosePage> {
                 controller: _foodController,
                 decoration: InputDecoration(
                   labelText: 'Add your own food',
+                  labelStyle: kTextStyle3,
                   suffixIcon: IconButton(
                     onPressed: _addFood,
                     icon: Icon(Icons.add),
